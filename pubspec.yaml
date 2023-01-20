@@ -1,0 +1,27 @@
+name: let_them_notice
+description: A showcase repo for the "Let them notice delay your Futures in Flutter" article.
+
+publish_to: "none"
+
+version: 1.0.0
+
+environment:
+  sdk: ">=2.12.0 <3.0.0"
+
+dependencies:
+  flutter:
+    sdk: flutter
+
+  cupertino_icons: ^1.0.2
+  pinput: ^2.2.21
+  delayed_future: ^1.0.2
+  iosish_shaker: ^1.0.0
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+
+  flutter_lints: ^2.0.0
+
+flutter:
+  uses-material-design: true
