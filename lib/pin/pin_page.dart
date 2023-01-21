@@ -1,4 +1,3 @@
-import 'package:delayed_future/delayed_future.dart';
 import 'package:flutter/material.dart';
 import 'package:iosish_shaker/iosish_shaker.dart';
 import 'package:pinput/pinput.dart';
@@ -47,9 +46,11 @@ class _PinPageState extends State<PinPage> {
         submittedColor = Colors.lightBlueAccent;
       });
 
-      // Notice the delay 👇
-      await verify(pin)
-          .delayResult(duration: const Duration(milliseconds: 850));
+      // Delaying the call 👇
+      await Future.delayed(
+        const Duration(milliseconds: 850),
+        () => verify(pin),
+      );
 
       // If no exception — we're good!
       setState(() {
@@ -58,10 +59,15 @@ class _PinPageState extends State<PinPage> {
 
       await Future.delayed(const Duration(seconds: 1));
 
-      if (mounted) {
-        Navigator.of(context).pop();
-      }
       // Navigate the user further ...
+
+      // Return to normal
+      setState(() {
+        controller.text = '';
+        submittedColor = Colors.blue;
+        error = null;
+        showError = false;
+      });
     } on Exception {
       shakeController.shake();
 

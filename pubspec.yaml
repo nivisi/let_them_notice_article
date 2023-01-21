@@ -14,7 +14,6 @@ dependencies:
 
   cupertino_icons: ^1.0.2
   pinput: ^2.2.21
-  delayed_future: ^1.0.2
   iosish_shaker: ^1.0.0
 
 dev_dependencies:
